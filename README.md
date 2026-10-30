@@ -1,60 +1,57 @@
-# UNICA — Little Steps. Limitless Possibilities.
+# UNICA — Every Step Matters
 
-An original, static-first Next.js App Router website for UNICA Multi Speciality Therapy Centre, Villupuram. Built with strict TypeScript, Tailwind CSS 4, GSAP/ScrollTrigger, Motion for React, and Lucide icons.
+An artwork-led, responsive Next.js App Router website for UNICA Multi Speciality Therapy Centre, Villupuram. Strict TypeScript, Tailwind CSS 4, GSAP/ScrollTrigger, Motion for React, and Lucide icons.
 
-## Development
+## Run and build
 
-Requires Node.js 20.9+ (developed with Node.js 24).
+Node.js 20.9+ required (developed with Node.js 24).
 
 ```sh
 npm ci
 npm run dev
-```
-
-Open http://localhost:3000.
-
-```sh
 npm run lint
 npm run typecheck
 npm run build
 ```
 
-The static production website is exported to `out/`. Serve that directory with directory-index routing and `404.html` fallback. `npm start` is not used with static export.
+Development: http://localhost:3000. Production output: `out/`. Serve with directory indexes and `404.html` fallback. `npm start` does not serve static exports.
 
-## Redesign and architecture
+## Design and implementation
 
-The October 2026 redesign replaces the original split hero, pastel expanding cards, and repetitive rounded layouts. The new opening is a centred typographic composition over an original stepping-stone SVG sculpture. A golden thread connects individual steps to an open arch. The rest of the homepage alternates editorial statements, an accessible therapy explorer, full-width representative photography, care principles, a vertical journey, native FAQ disclosures, and consultation actions.
+The current redesign follows the visual direction of the user-supplied “Every Step Matters” image: a warm ivory butterfly hero with a golden script accent, transparent clay-style therapy icons, floating pastel service tiles, a cloud-and-stairway journey, organic photo masks, compact supporting sections, a welcoming navy family message and a clear consultation panel. The page is implemented in live HTML/React rather than displaying a screenshot. All generated children are identified as representative conceptual artwork.
 
-- `app/page.tsx`: HeroScene, Approach, Connection, Care, JourneyPath, Questions and composition.
-- `components/PossibilityArt.tsx`: original vector artwork, suitable for responsive motion without a 3D runtime.
-- `components/MotionScene.tsx`: scoped GSAP entry, path drawing, scroll storytelling and desktop-only photo transformations; matchMedia contexts clean up on unmount and preference changes.
-- `components/TherapyExperience.tsx`: six-service tab interface with touch controls, roving keyboard focus, arrow/Home/End key support, and Motion transitions. Mobile uses a compact two-column selector and full-width detail panel.
-- `components/Header.tsx`: desktop and mobile navigation, focus containment, Escape handling, and consultation CTA.
-- `components/ContactSection.tsx` and `ConsultationForm.tsx`: unchanged business handoffs and the exact map supplied by the user, presented in the new design.
-- `app/`: home, about, therapy overview, six individual service pages, team, contact, privacy, robots, sitemap, and custom 404.
+- `app/page.tsx`: HeroScene, JourneyPath, WhyUnica, FamilyClose, HomeMap and page composition.
+- `components/TherapyExperience.tsx`: six independently focusable touch/keyboard service tiles and animated detail panels with links to service pages. Selecting an active tile again closes its detail. Mobile uses three columns across two rows.
+- `components/MotionScene.tsx`: scoped GSAP hero reveal, card entry, scroll-drawn golden journey path, and desktop image depth. Contexts and matchMedia clean up on unmount and preference changes. Reduced motion retains readable content with no cinematic transforms.
+- `components/Header.tsx`: mobile focus containment/Escape, page-aware desktop navigation, preserved logo, and click-to-call action.
+- `components/Footer.tsx`: compact branding, working social/contact/directions links and privacy.
+- `components/ContactSection.tsx` and `ConsultationForm.tsx`: validated WhatsApp draft handoff, phone numbers and the exact supplied Google Maps embed.
+- Routes: home, about, therapies overview, six therapy pages, team, contact, privacy, sitemap, robots and custom 404.
 
-Design tokens in `app/globals.css`: warm off-white #F7F7F2, deep navy #142E51, soft blue #DCE8F6, and restrained gold #DFB05B. Locally served Manrope and DM Sans pair with a system Georgia italic accent. Fonts include their SIL license files. Desktop compositions, tablet spacing, and mobile layouts use separate breakpoints. Reduced motion disables the cinematic transforms; content remains readable and the journey is visible without animation. No pinned mobile scenes.
+Design tokens and responsive styles: `app/globals.css`. Palette: warm ivory #FFF8EF, deep navy #082D4C, soft sky blue and gold #F5B243. Locally served Manrope and DM Sans pair with Caveat for the golden script. Native font licenses are included. Mobile uses a separately composed hero image crop, touch-friendly tiles and a vertical journey. No pinned mobile scroll scenes.
 
-## Assets and factual content
+## Assets and editable content
 
-See [the complete asset audit](docs/ASSET-AUDIT.md). All previous reference-site imagery except the authentic UNICA logo was removed. The original SVG illustrations and social graphic are locally authored. Two independently sourced, licensed Pexels photographs by Mikhail Nilov are locally served and explicitly identified as representative stock photography, not UNICA patients or staff. No proprietary Scrolltide assets or copied components are used.
+[Asset audit](docs/ASSET-AUDIT.md) records all current assets and prior removals. [Generation prompts](docs/IMAGE-GENERATION.md) records the exact built-in image-generation prompt set and saved filenames. All production generated assets live in `public/generated/`. The UNICA logo is preserved. Representative stock photos are independently sourced from Pexels and labelled; they are not claimed as UNICA patients or staff.
 
-Edit verified contacts, service copy, programme names, map URL, and journey descriptions in `lib/content.ts`. Set `NEXT_PUBLIC_SITE_URL` at build time to change canonical URLs. Change `site.whatsapp` using full international digits. The verified founding date, phone numbers and user-supplied map are preserved. Current staff names/credentials, street address, opening hours, and approved testimonials have not been supplied and are not invented. Replace stock photography with consented, approved centre images when available.
+Edit contacts, WhatsApp international digits, service copy, programmes, map, and journey stages in `lib/content.ts`. `NEXT_PUBLIC_SITE_URL` changes the canonical origin at build time. Business facts provided by the user are retained. No current staff roster, qualifications, street address, hours, outcome claims or parent testimonials are invented. Approved centre photography can replace representative imagery when available.
 
-## Enquiry behaviour
+## Enquiries and privacy
 
-The form validates name, phone and consent; a honeypot is included. It prepares an encoded WhatsApp draft. The parent reviews and sends the message in WhatsApp. Nothing is sent automatically, stored in a website database, or falsely reported as delivered. Phone and direct WhatsApp links remain available. Privacy information describes the WhatsApp handoff and Google Maps.
+The enquiry form validates name, phone and consent, includes a honeypot, and prepares an encoded WhatsApp draft. The parent reviews and sends it in WhatsApp. Nothing is automatically submitted, falsely reported as delivered, or stored in a website database. Phone and direct WhatsApp links remain available.
 
-Automatic server-side delivery remains unconfigured because provider credentials and a verified destination were not supplied. Adding that requires a real server-side integration (or separately hosted API), spam verification and rate limiting, server validation, actual provider-acceptance handling, and an updated privacy notice. Never put provider secrets in `NEXT_PUBLIC_` variables.
+Automatic server delivery remains unconfigured because provider credentials and a verified destination were not supplied. Adding it requires a real backend or separately hosted API, server validation, spam/rate-limit protections, verified delivery responses and updated privacy information. Never place secrets in `NEXT_PUBLIC_` variables.
 
-## Verification
+The homepage offers an expandable location map; the contact page presents the full supplied map. External Google Maps rendering and WhatsApp delivery depend on those services.
+
+## Browser verification
 
 ```sh
 node scripts/browser-qa.mjs
 ```
 
-Run against localhost:3000. Uses local Google Chrome; override `CHROME_PATH` for another installation. Tests requested widths 320, 375, 430, 768, 1024, 1440, and 1920; checks overflow and image loading; tests all routes at 320/768/1440, mobile navigation/Escape, six therapy tabs and keyboard controls, enquiry validation and draft links, FAQ disclosures, reduced motion and regular motion, and path drawing. Screenshots are saved to `/tmp/unica-redesign-*.png`. Browser runtime errors fail the script. Visual review and refinements accompany the automated checks. External Google Maps service rendering depends on network availability; the exact iframe and directions link are preserved.
+Run with the development server at localhost:3000. The script uses installed Google Chrome; override `CHROME_PATH` for another installation. It verifies requested 320, 375, 430, 768, 1024, 1440 and 1920 widths; overflow and broken images; all routes at 320/768/1440; mobile navigation and Escape; six service tiles, keyboard activation and links; form validation and the WhatsApp draft; map expansion; reduced/normal motion; and journey path drawing. Runtime and hydration errors fail QA. Screenshots are written to `/tmp/unica-reference-*.png` and inspected for desktop/mobile composition.
 
-## Deployment
+## Deploy
 
-The existing owner-private Sites project is retained in `.openai/hosting.json`, with `out` as its static directory. The Sites workflow runs checks, exports production, pushes the matching source commit and packages the corresponding output before private publication. No sharing settings are changed. Other static hosting providers can serve `out/` after building with their final canonical origin.
+The existing owner-private Sites project is retained in `.openai/hosting.json`, exporting `out/`. The Sites source workflow pushes the exact source revision, packages its corresponding build, then privately deploys it. Sharing settings are preserved. For another static host, build with its canonical origin and upload `out/`.
