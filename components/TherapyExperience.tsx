@@ -1,0 +1,9 @@
+'use client';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useState } from 'react';
+import { ArrowRight, ArrowUpRight, BookOpen, Heart, Hand, MessageCircle, Move, Sprout } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
+import { therapies } from '@/lib/content';
+const icons=[Hand,MessageCircle,Move,Heart,BookOpen,Sprout];
+export function TherapyExperience(){const [active,setActive]=useState(0);const reduced=useReducedMotion();return <section className="therapies section" id="therapies"><div className="section-heading" data-reveal><div><span className="eyebrow">Care that sees the whole child</span><h2>Different therapies.<br/><em>One shared purpose.</em></h2></div><p>A thoughtful blend of support, built around<br className="desktop-only"/> your child’s unique world.</p></div><div className="therapy-accordion">{therapies.map((t,i)=>{const Icon=icons[i];const selected=active===i;return <motion.article layout={!reduced} transition={{duration:.45,ease:[.22,1,.36,1]}} key={t.slug} className={`therapy-panel ${t.color} ${selected?'active':''}`}><button className="therapy-trigger" aria-expanded={selected} aria-controls={`therapy-${i}`} onClick={()=>setActive(i)}><span className="therapy-number">0{i+1}</span><Icon size={26} strokeWidth={1.4}/><span>{t.name}</span><span className="therapy-plus">{selected?'−':'+'}</span></button><div id={`therapy-${i}`} className="therapy-content" hidden={!selected}><div className="therapy-image"><Image src={t.image} alt={`${t.name} illustration`} fill sizes="(max-width: 700px) 85vw, 40vw"/></div><div className="therapy-copy"><h3>{t.short}</h3><p>{t.description}</p><Link href={`/therapies/${t.slug}`} aria-label={`Explore ${t.name}`}>Explore therapy <ArrowUpRight size={18}/></Link></div></div></motion.article>})}</div><Link className="text-link therapy-all" href="/therapies">Find the right support for your child <ArrowRight size={18}/></Link></section>}
