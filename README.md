@@ -57,3 +57,7 @@ Run with the development server at localhost:3000. The script uses installed Goo
 ## Deploy
 
 The existing owner-private Sites project is retained in `.openai/hosting.json`, exporting `out/`. The Sites source workflow pushes the exact source revision, packages its corresponding build, then privately deploys it. Sharing settings are preserved. For another static host, build with its canonical origin and upload `out/`.
+
+## 16 November 2026 visual update
+
+The homepage hero uses an original navy-and-gold botanical sculpture (`GrowthSculpture.tsx`), with consultation as the primary action. The butterfly/child hero image has been retired, including social metadata. The A Brighter Tomorrow story now uses `BrighterTomorrowArt.tsx`, an original illustration of hands supporting a plant. Existing scroll chapters, keyboard controls, contact actions and reduced-motion support remain functional. Browser QA can target a production static server with `UNICA_BASE_URL=http://localhost:3001 node scripts/browser-qa.mjs`.

@@ -32,3 +32,7 @@ Git history retains previous revisions for version control; removed files are no
 ## Creative enhancement
 
 The current animated illustration, scene transforms, interaction feedback and route transitions are documented in [MOTION-DESIGN.md](MOTION-DESIGN.md). No new reference-site image or stock photo was introduced for this enhancement.
+
+## 16 November 2026 — premium opening and care visual
+
+The child-and-butterfly hero was removed from the homepage and social-sharing metadata, and retired from public assets. `components/GrowthSculpture.tsx` is original dimensional botanical SVG artwork representing six connected care areas. `components/BrighterTomorrowArt.tsx` replaces the character scene in the A Brighter Tomorrow section with original artwork of supporting hands and a growing seedling. Existing About-page artwork remains unchanged. The hero now prioritises consultation with a spacious ivory/navy composition, subtle sculpture motion, and verified centre context. No new stock image, reference image, or generated person was introduced.
