@@ -36,3 +36,5 @@ The current animated illustration, scene transforms, interaction feedback and ro
 ## 16 November 2026 — premium opening and care visual
 
 The child-and-butterfly hero was removed from the homepage and social-sharing metadata, and retired from public assets. `components/GrowthSculpture.tsx` is original dimensional botanical SVG artwork representing six connected care areas. `components/BrighterTomorrowArt.tsx` replaces the character scene in the A Brighter Tomorrow section with original artwork of supporting hands and a growing seedling. Existing About-page artwork remains unchanged. The hero now prioritises consultation with a spacious ivory/navy composition, subtle sculpture motion, and verified centre context. No new stock image, reference image, or generated person was introduced.
+
+The subsequent background refinement restores `public/generated/hero-butterfly.webp` solely as a decorative, softly blurred hero backdrop. An ivory overlay preserves text contrast; the sculpture remains the foreground visual. The image is original representative AI artwork, not a photograph of UNICA patients.
