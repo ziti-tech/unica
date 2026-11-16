@@ -63,3 +63,5 @@ The existing owner-private Sites project is retained in `.openai/hosting.json`, 
 The homepage hero uses an original navy-and-gold botanical sculpture (`GrowthSculpture.tsx`), with consultation as the primary action. The butterfly/child hero image has been retired, including social metadata. The A Brighter Tomorrow story now uses `BrighterTomorrowArt.tsx`, an original illustration of hands supporting a plant. Existing scroll chapters, keyboard controls, contact actions and reduced-motion support remain functional. Browser QA can target a production static server with `UNICA_BASE_URL=http://localhost:3001 node scripts/browser-qa.mjs`.
 
 The subsequent background refinement restores `public/generated/hero-butterfly.webp` solely as a decorative, softly blurred hero backdrop. An ivory overlay preserves text contrast; the sculpture remains the foreground visual. The image is original representative AI artwork, not a photograph of UNICA patients.
+
+Clarification: the final blurred hero background is the original six-petal fan-flower SVG itself. The standalone flower panel and child/butterfly backdrop were removed. The child image is retired from public assets.
