@@ -1,6 +1,10 @@
+const mobile = '7200701127';
+const landline = '04146 294770';
 export const site = {
   name: 'UNICA Multi Speciality Therapy Centre',
-  phone: '7200701127', landline: '04146 294770', whatsapp: '917200701127',
+  phone: mobile, landline, whatsapp: `91${mobile}`,
+  phoneLink: `tel:+91${mobile}`, phoneDisplay: '+91 72007 01127', phoneLocalDisplay: '72007 01127',
+  landlineLink: `tel:+91${landline.replaceAll(' ', '')}`, location: 'Villupuram, Tamil Nadu',
   origin: process.env.NEXT_PUBLIC_SITE_URL || 'https://unica-therapy-villupuram.alousiusambrose18.chatgpt.site',
   instagram: 'https://www.instagram.com/unica_rehabilitation_centre/',
   directions: 'https://maps.app.goo.gl/RRrFojFDiapXVgQT9?g_st=iw',
